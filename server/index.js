@@ -3,13 +3,12 @@ const app = express();
 const cors = require("cors");
 const history = require("connect-history-api-fallback");
 
+const repo = require("./routes/repo");
 const port = process.env.PORT || 3000;
 
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("Hi from API!");
-});
+app.use("/api", repo);
 
 app.use(history());
 
